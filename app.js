@@ -1,3 +1,6 @@
+'use strict';
+
+//Initial State object
 const initialState = {
     tasks: {
         'task-1': { id: 'task-1', content: 'Configure webpack' },
@@ -24,3 +27,18 @@ const initialState = {
     },
     columnOrder: ['column-1', 'column-2', 'column-3'],
 };
+//1. Make render function
+function render() {
+    //variables
+    const appContainer = document.querySelector('#app');
+    const toDoColumnTitle = initialState.columns['column-1'].title;
+    //clear any duplicaets/other html
+    appContainer.innerHTML = '';
+
+    //3. render title to screen
+    const titleElement = document.createElement('h2');
+    titleElement.textContent = toDoColumnTitle;
+    appContainer.appendChild(titleElement);
+}
+
+render();

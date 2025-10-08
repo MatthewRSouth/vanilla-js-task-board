@@ -37,36 +37,25 @@ function render() {
     const toDoTaskIds = initialState.columns['column-1'].taskIds;
     appContainer.innerHTML = '';
     for (let columnId of initialState.columnOrder) {
-        //Create Div and Title
+        //Create Div and Title elements
         const columnDiv = document.createElement('div');
         const column = initialState.columns[columnId];
         const columnTitle = column.title;
         const titleEl = document.createElement('h2');
+        //create title element and put it in the div
         titleEl.textContent = columnTitle;
         columnDiv.appendChild(titleEl);
-        console.log(columnTitle);
-        columnDiv.textContent = columnTitle;
+
         //Getting the tasks and creating the cards
         const columnTaskIDs = column.taskIds;
         for (const taskId of columnTaskIDs) {
-            const cardContent = initialState.tasks[taskId].content;
-            columnDiv.appendChild(cardContent);
-            appContainer.appendChild(columnDiv);
+            const task = initialState.tasks[taskId];
+            const cardEl = document.createElement('div');
+            cardEl.textContent = task.content;
+            columnDiv.appendChild(cardEl);
         }
+        appContainer.appendChild(columnDiv);
     }
-    // //3. render title to screen
-    // const titleElement = document.createElement('h2');
-    // titleElement.textContent = toDoColumnTitle;
-    // appContainer.appendChild(titleElement);
-
-    // //get and render to-do tasks
-    // toDoTaskIds.forEach(function (taskId) {
-    //     const task = initialState.tasks[taskId];
-    //     const taskContent = task.content;
-    //     const cardElement = document.createElement('div');
-    //     cardElement.textContent = taskContent;
-    //     appContainer.appendChild(cardElement);
-    // });
 }
 
 render();

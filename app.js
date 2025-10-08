@@ -27,18 +27,46 @@ const initialState = {
     },
     columnOrder: ['column-1', 'column-2', 'column-3'],
 };
+
 //1. Make render function
 function render() {
     //variables
     const appContainer = document.querySelector('#app');
-    const toDoColumnTitle = initialState.columns['column-1'].title;
-    //clear any duplicaets/other html
-    appContainer.innerHTML = '';
+    // const toDoColumnTitle = initialState.columns['column-1'].title;
 
-    //3. render title to screen
-    const titleElement = document.createElement('h2');
-    titleElement.textContent = toDoColumnTitle;
-    appContainer.appendChild(titleElement);
+    const toDoTaskIds = initialState.columns['column-1'].taskIds;
+    appContainer.innerHTML = '';
+    for (let columnId of initialState.columnOrder) {
+        //Create Div and Title
+        const columnDiv = document.createElement('div');
+        const column = initialState.columns[columnId];
+        const columnTitle = column.title;
+        const titleEl = document.createElement('h2');
+        titleEl.textContent = columnTitle;
+        columnDiv.appendChild(titleEl);
+        console.log(columnTitle);
+        columnDiv.textContent = columnTitle;
+        //Getting the tasks and creating the cards
+        const columnTaskIDs = column.taskIds;
+        for (const taskId of columnTaskIDs) {
+            const cardContent = initialState.tasks[taskId].content;
+            columnDiv.appendChild(cardContent);
+            appContainer.appendChild(columnDiv);
+        }
+    }
+    // //3. render title to screen
+    // const titleElement = document.createElement('h2');
+    // titleElement.textContent = toDoColumnTitle;
+    // appContainer.appendChild(titleElement);
+
+    // //get and render to-do tasks
+    // toDoTaskIds.forEach(function (taskId) {
+    //     const task = initialState.tasks[taskId];
+    //     const taskContent = task.content;
+    //     const cardElement = document.createElement('div');
+    //     cardElement.textContent = taskContent;
+    //     appContainer.appendChild(cardElement);
+    // });
 }
 
 render();

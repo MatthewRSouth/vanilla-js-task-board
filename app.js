@@ -1,5 +1,10 @@
 'use strict';
 
+const newTaskForm = document.querySelector('#new-task-form');
+const newTaskInput = document.querySelector('#new-task-input');
+const newTaskBtn = document.querySelector('#new-task-btn');
+newTaskBtn.style.backgroundColor;
+
 //Initial State object
 const initialState = {
     tasks: {

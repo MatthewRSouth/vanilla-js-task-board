@@ -33,7 +33,6 @@ const initialState = {
     columnOrder: ['column-1', 'column-2', 'column-3'],
 };
 
-//1. Make render function
 function render() {
     //variables
     const appContainer = document.querySelector('#app');
@@ -44,9 +43,11 @@ function render() {
     for (let columnId of initialState.columnOrder) {
         //Create Div and Title elements
         const columnDiv = document.createElement('div');
+        columnDiv.classList.add('column');
         const column = initialState.columns[columnId];
         const columnTitle = column.title;
         const titleEl = document.createElement('h2');
+        titleEl.classList.add('title-element');
         //create title element and put it in the div
         titleEl.textContent = columnTitle;
         columnDiv.appendChild(titleEl);
@@ -56,11 +57,32 @@ function render() {
         for (const taskId of columnTaskIDs) {
             const task = initialState.tasks[taskId];
             const cardEl = document.createElement('div');
+            cardEl.classList.add('card');
             cardEl.textContent = task.content;
             columnDiv.appendChild(cardEl);
         }
         appContainer.appendChild(columnDiv);
     }
 }
+//2. event listener on submit button for newtask
+let currentTaskCount = Object.keys(initialState.tasks).length;
+newTaskForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const taskValue = newTaskInput.value;
+
+    if (taskValue.trim() !== '') {
+        currentTaskCount += 1;
+        const newTaskId = `task-${currentTaskCount}`;
+
+        initialState.tasks[newTaskId] = {
+            id: newTaskId,
+            content: taskValue,
+        };
+        initialState.columns['column-1'].taskIds.push(newTaskId);
+    }
+
+    render();
+    newTaskInput.value = '';
+});
 
 render();

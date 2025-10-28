@@ -1,8 +1,15 @@
+:root {
+    --pastel-blue: #b3ebf2;
+    --pastel-purple: #b19cd9;
+    --pastel-green: #b2fba5;
+}
+
 #app {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
-    place-items: center;
+    justify-content: center;
+    width: 100%;
 }
 #new-task-form {
     /* display: flex;
@@ -19,12 +26,39 @@
 .column {
     display: flex;
     flex-direction: column;
-    margin: 10px;
     align-items: center;
-    max-width: min-content;
-    width: 100%;
+    margin: 10px;
+    width: 125px;
+    overflow-wrap: break-word;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 .title-element {
+    font-size: 20px;
 }
 .card {
+    width: 100px;
+    overflow-wrap: break-word;
+    font-size: 16px;
+    margin: 5px;
+}
+.card-span {
+    display: flex;
+    flex-direction: row;
+    background-color: aquamarine;
+    width: 123px;
+    height: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    position: relative;
+    bottom: 112px;
+}
+.blue {
+    background-color: var(--pastel-blue);
+}
+.purple {
+    background-color: var(--pastel-purple);
+}
+.green {
+    background-color: var(--pastel-green);
 }

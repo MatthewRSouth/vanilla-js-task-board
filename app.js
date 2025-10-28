@@ -51,9 +51,11 @@ function render() {
         //create title element and put it in the div
         titleEl.textContent = columnTitle;
         columnDiv.appendChild(titleEl);
-
         //Getting the tasks and creating the cards
         const columnTaskIDs = column.taskIds;
+        //TODO
+        let counter = -1;
+        const spanColors = ['blue', 'purple', 'green'];
         for (const taskId of columnTaskIDs) {
             const task = initialState.tasks[taskId];
             const cardEl = document.createElement('div');

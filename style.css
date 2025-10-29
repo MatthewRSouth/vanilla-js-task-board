@@ -2,6 +2,12 @@
     --pastel-blue: #b3ebf2;
     --pastel-purple: #b19cd9;
     --pastel-green: #b2fba5;
+    --pale-yellow: #ffffc5;
+    --pale-white: #fbfbfd;
+}
+body {
+    background-color: var(--pale-yellow);
+    position: relative;
 }
 
 #app {
@@ -23,6 +29,14 @@
     margin: 10px;
     padding: 10px;
 }
+.black-hole {
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 20px;
+    height: 20px;
+    display: block;
+    z-index: -99;
+}
 .column {
     display: flex;
     flex-direction: column;
@@ -32,6 +46,8 @@
     overflow-wrap: break-word;
     border: 2px solid black;
     border-radius: 10px;
+    background-color: var(--pale-white);
+    z-index: 99;
 }
 .title-element {
     font-size: 20px;
@@ -48,10 +64,7 @@
     background-color: aquamarine;
     width: 123px;
     height: 10px;
-    margin: 10px;
     border-radius: 15px;
-    position: relative;
-    bottom: 112px;
 }
 .blue {
     background-color: var(--pastel-blue);

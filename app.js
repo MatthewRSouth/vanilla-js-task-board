@@ -40,25 +40,39 @@ function render() {
 
     const toDoTaskIds = initialState.columns['column-1'].taskIds;
     appContainer.innerHTML = '';
+    let counter = 0;
+    const spanColors = ['blue', 'purple', 'green'];
     for (let columnId of initialState.columnOrder) {
         //Create Div and Title elements
         const columnDiv = document.createElement('div');
+
+        //column
         columnDiv.classList.add('column');
         const column = initialState.columns[columnId];
+        //TODO
+        const spanEl = document.createElement('span');
+        const colorClass = spanColors[counter % spanColors.length];
+        spanEl.classList.add('card-span', colorClass);
+        columnDiv.appendChild(spanEl);
+        counter++;
+
         const columnTitle = column.title;
+
+        //title
         const titleEl = document.createElement('h2');
         titleEl.classList.add('title-element');
+
         //create title element and put it in the div
         titleEl.textContent = columnTitle;
         columnDiv.appendChild(titleEl);
+
         //Getting the tasks and creating the cards
         const columnTaskIDs = column.taskIds;
-        //TODO
-        let counter = -1;
-        const spanColors = ['blue', 'purple', 'green'];
+
         for (const taskId of columnTaskIDs) {
             const task = initialState.tasks[taskId];
             const cardEl = document.createElement('div');
+
             cardEl.classList.add('card');
             cardEl.textContent = task.content;
             columnDiv.appendChild(cardEl);

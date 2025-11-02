@@ -6,7 +6,7 @@
     --pale-white: #fbfbfd;
 }
 body {
-    background-color: var(--pale-yellow);
+    background-color: #262626;
     position: relative;
 }
 
@@ -16,6 +16,7 @@ body {
     text-align: center;
     justify-content: center;
     width: 100%;
+    gap: 10px;
 }
 #new-task-form {
     /* display: flex;
@@ -29,31 +30,32 @@ body {
     margin: 10px;
     padding: 10px;
 }
+
 .black-hole {
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
     width: 20px;
     height: 20px;
     display: block;
-    z-index: -99;
 }
 .column {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
-    width: 125px;
+    width: 105px;
     overflow-wrap: break-word;
     border: 2px solid black;
     border-radius: 10px;
-    background-color: var(--pale-white);
+    background-color: #5d5d5d;
     z-index: 99;
+    color: #e7e7e7;
 }
 .title-element {
     font-size: 20px;
+    text-decoration: underline;
 }
 .card {
-    width: 100px;
+    width: 80px;
     overflow-wrap: break-word;
     font-size: 16px;
     margin: 5px;
@@ -62,7 +64,7 @@ body {
     display: flex;
     flex-direction: row;
     background-color: aquamarine;
-    width: 123px;
+    width: 103px;
     height: 10px;
     border-radius: 15px;
 }
